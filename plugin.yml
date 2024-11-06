@@ -1,0 +1,94 @@
+name: EconomiaPlugin
+main: com.gold.economia.EconomiaPlugin
+version: 1.0
+api: 2.0.0
+author: Gold
+description: Plugin de economia para servidor de sobrevivência, com banco, transferência PIX, sistema de níveis e item físico de dinheiro.
+
+commands:
+  banco:
+    description: Acesse seu banco
+    usage: /banco <saldo|deposito|saque>
+
+  dinheiro:
+    description: Recebe um papel com dinheiro
+    usage: /dinheiro <quantia>
+
+  saldo:
+    description: Exibe o saldo do jogador.
+    usage: "/saldo"
+    permission: economia.command.saldo
+    permission-message: "Você não tem permissão para verificar o saldo."
+
+  topdinheiro:
+    description: Mostra o ranking dos jogadores com mais dinheiro.
+    usage: "/topdinheiro"
+    permission: economia.command.topdinheiro
+    permission-message: "Você não tem permissão para ver o ranking de dinheiro."
+
+  topnivel:
+    description: Mostra o ranking dos jogadores com maior nível.
+    usage: "/topnivel"
+    permission: economia.command.topnivel
+    permission-message: "Você não tem permissão para ver o ranking de níveis."
+
+  adddinheiro:
+    description: Adiciona uma quantia de dinheiro a um jogador específico (restrito ao dono).
+    usage: "/adddinheiro <jogador> <quantia>"
+    permission: economia.command.adddinheiro
+    permission-message: "Apenas o dono do servidor pode usar este comando."
+
+  removemoney:
+    description: Remove uma quantia de dinheiro de um jogador específico (restrito ao dono).
+    usage: "/removemoney <jogador> <quantia>"
+    permission: economia.command.removemoney
+    permission-message: "Apenas o dono do servidor pode usar este comando."
+
+  pix:
+    description: Transferir dinheiro instantaneamente para outro jogador (PIX)
+    usage: /pix <jogador> <quantia>
+    permission: economia.command.pix
+    permission-message: "Você não tem permissão para realizar uma transferência PIX."
+
+  addnivel:
+    description: Adiciona um nível a um jogador específico (restrito ao dono).
+    usage: "/addnivel <jogador> <quantia>"
+    permission: economia.command.addnivel
+    permission-message: "Apenas o dono pode adicionar níveis."
+
+permissions:
+  economia.command.banco:
+    default: true
+    description: Permite acessar o sistema de banco (saldo, depósito e saque).
+
+  economia.command.dinheiro:
+    default: op
+    description: Permite ao dono do servidor (Gold) obter o item de dinheiro.
+
+  economia.command.saldo:
+    default: true
+    description: Permite verificar o saldo de dinheiro do jogador.
+
+  economia.command.topdinheiro:
+    default: true
+    description: Permite ver o ranking dos jogadores com mais dinheiro.
+
+  economia.command.topnivel:
+    default: true
+    description: Permite ver o ranking dos jogadores com maior nível.
+
+  economia.command.adddinheiro:
+    default: op
+    description: Permite ao dono do servidor adicionar dinheiro a um jogador.
+
+  economia.command.removemoney:
+    default: op
+    description: Permite ao dono do servidor remover dinheiro de um jogador.
+
+  economia.command.pix:
+    default: true
+    description: Permite transferir dinheiro para outro jogador instantaneamente via PIX (acessível por todos os jogadores).
+
+  economia.command.addnivel:
+    default: op
+    description: Permite adicionar níveis a um jogador (somente para o dono).
